@@ -1,0 +1,16 @@
+{
+    "/api": {
+        "target": "https://m.pingan.com/yizhangtong/api/gp/",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/api": ""
+        }
+    },
+    "/pingdingshan": {
+        "target": "http://test1-pdsb-fbtoamc.pingan.com.cn:35016/",
+        "changeOrigin": true,
+        "pathRewrite": {
+            "^/pingdingshan": ""
+        }
+    }
+}

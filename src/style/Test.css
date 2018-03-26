@@ -1,0 +1,28 @@
+:root {
+    --fontSize: 1rem;
+    --color-main: green;
+    --thems: {
+        color: #ffffff;
+        transition: all .5s;
+    }
+}
+
+.Test {
+    display: flex;
+    background-color: var(--color-main);
+    @apply --thems;
+}
+
+.App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
