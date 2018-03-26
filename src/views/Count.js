@@ -5,7 +5,7 @@ import Counter from '../components/Counter/Counter';
 // const mapStateToProps = (store) => {
 //     return {store: store.count}
 // }
-const CountApp = ({store,dispatch}) => {
+const CountApp = ({store, dispatch}) => {
     return (
         <Counter
         value={0}
