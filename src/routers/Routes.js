@@ -24,7 +24,14 @@ const About = Loadable({
 });
 const Count = Loadable({
     loader: () => import ('../views/Count'),
+    modules: ['../views/Count'],
     webpack: () => [require.resolveWeak('../views/Count')],
+    loading: Loading
+});
+const Todo = Loadable({
+    loader: () => import ('../views/Todo'),
+    modules: ['../views/Todo'],
+    webpack: () => [require.resolveWeak('../views/Todo')],
     loading: Loading
 });
 export default[
@@ -41,5 +48,8 @@ export default[
     }, {
         path : '/Count',
         component : Count
+    }, {
+        path : '/Todo',
+        component : Todo
     }
 ];

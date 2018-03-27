@@ -1,32 +1,31 @@
 import React, {Component} from 'react';
 import {Switch, Route, HashRouter} from 'react-router-dom';
-import {Provider} from 'react-redux';
+
 import routes from './Routes';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
+// import {Provider} from 'react-redux';
 
 class Layout extends Component {
     render() {
-        const {store} = this.props;
+        console.log(this.props);
         return (
-            <Provider store={store}>
-            <HashRouter>
-                <div>
-                    <Switch>
-                        {routes.map((route, i) => <Route
-                            key={i}
-                            exact={!!route.exact}
-                            path={route.path}
-                            component={route.component}/>)}
-                    </Switch>
-                </div>
-            </HashRouter>
-            </Provider>
+                <HashRouter>
+                    <div>
+                        <Switch>
+                            {routes.map((route, i) => <Route
+                                key={i}
+                                exact={!!route.exact}
+                                path={route.path}
+                                component={route.component}/>)}
+                        </Switch>
+                    </div>
+                </HashRouter>
         );
     }
 }
 
-Layout.propTypes = {
-    store: PropTypes.object.isRequired
-};
+// Layout.propTypes = {
+//     store: PropTypes.object.isRequired
+// };
 
 export default Layout;

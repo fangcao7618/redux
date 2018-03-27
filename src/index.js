@@ -1,18 +1,20 @@
 // import 'babel-polyfill';
 import 'amfe-flexible';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import {render} from 'react-dom';
 import './index.css';
-// import App from './App';
-// import App from './views/test';
 import App from './routers/Layout';
 import registerServiceWorker from './registerServiceWorker';
 import {createStore} from 'redux';
-import rootReducer from './reducers/Counter'; //  最后换成很多个的写法
-const store = createStore(rootReducer);
+import {Provider} from 'react-redux';
+// import rootReducer from './reducers/Counter'; //  最后换成很多个的写法
+import todoApp from './reducers/reducers';
 
-const render = () => ReactDOM.render(<App store={store} />,document.getElementById('root'));
-// ReactDOM.render(<App />, document.getElementById('root'));
-render();
-store.subscribe(render);
+const rootElement = document.getElementById('root');
+const store = createStore(todoApp);
+render(
+    <Provider store={store} >
+        <App />
+    </Provider>, rootElement);
+// store.subscribe(render);
 registerServiceWorker();
