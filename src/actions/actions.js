@@ -4,7 +4,6 @@
 export const ADD_TODO = 'ADD_TODO'; //添加列表
 export const TOGGLE_TODO = 'TOGGLE_TODO'; //切换列表
 export const SET_VISIBILITY_FILTER = 'SET_VISIBILITY_FILTER'; //过滤可用的列表
-
 /**
  * 其它的常量
  */
@@ -13,6 +12,8 @@ export const VisibilityFilters = {
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
 };
+export const INCREMENT = 'INCREMENT';
+export const DECREMENT = 'DECREMENT';
 
 /**
  * action 创建函数
@@ -26,4 +27,12 @@ export function toggleTodo(index) {
 }
 export function setVisibilityFilter(filter) {
     return {type: SET_VISIBILITY_FILTER, filter}
+}
+
+
+export function increment(count){
+    return {type:INCREMENT, count}
+}
+export function decrement(count){
+    return {type:DECREMENT, count}
 }

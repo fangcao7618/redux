@@ -3,7 +3,9 @@ import {
     ADD_TODO, 
     TOGGLE_TODO, 
     SET_VISIBILITY_FILTER, 
-    VisibilityFilters
+    VisibilityFilters,
+    INCREMENT,
+    DECREMENT,
 } from '../actions/actions';
 
 const {SHOW_ALL} = VisibilityFilters;
@@ -36,6 +38,21 @@ const todos = (state = [], action) => {
                 }),
                 ...state.slice(action.index+1)
             ];
+        case INCREMENT:
+            return state + 1;
+        case DECREMENT:
+            return state + 1;
+        default:
+            return state;
+    }
+};
+
+const count = (state = 0, action) => {
+    switch (action.type) {
+        case INCREMENT:
+            return state + 1;
+        case DECREMENT:
+            return state + 1;
         default:
             return state;
     }
@@ -43,7 +60,8 @@ const todos = (state = [], action) => {
 
 const todoApp = combineReducers({
     visibilityFilters,
-    todos
+    todos,
+    count
 });
 
 export default todoApp;

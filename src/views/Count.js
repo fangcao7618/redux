@@ -1,28 +1,37 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import Counter from '../components/Counter/Counter';
+import {increment,decrement} from '../actions/actions';
 
-// const mapStateToProps = (store) => {     return {store: store.count} }
-const CountApp = ({store, dispatch}) => {
-    // console.log(store.state, dispatch);
-    return (<Counter
-        value={0}
-        onIncrement={() => store.dispatch({type: 'INCREMENT'})}
-        onDecrement={() => store.dispatch({type: 'DECREMENT'})}/>)
-};
-// const mapStateToProps = (state) => {
-//     console.log(state);
-//     return {store: state}
+// const CountApp = ({count, dispatch}) => {
+//     console.log(count);
+    
+//     return (<Counter
+//         value={count}
+//         onIncrement={(count) => dispatch(increment(count))}
+//         onDecrement={(count) => dispatch(decrement(count))}/>)
 // };
-const HomePage = connect()(CountApp);
+const mapStateToProps = (state) => {
+    return {count: state.count}
+};
+// const HomePage = connect(mapStateToProps)(CountApp);
 class Count extends Component {
     render() {
+        const {count,dispatch}=this.props;
         return (
             <div>
-                <HomePage/>
+            <Counter
+            value={count}
+            onIncrement={(count) => dispatch(increment(count))}
+            onDecrement={(count) => dispatch(decrement(count))}/>
             </div>
         )
     }
 };
 
-export default Count;
+Count.propTypes={
+    count: PropTypes.number.isRequired
+};
+
+export default connect(mapStateToProps)(Count);

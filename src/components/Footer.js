@@ -7,16 +7,18 @@ class Footer extends Component {
             return name;
         }
         return (
-            <a
-                href='#'
+            <button
                 onClick={e => {
-                e.preventDefault();
-                this
-                    .props
-                    .onFilterChange(filter)
+                        e.preventDefault();
+                        this
+                            .props
+                            .onFilterChange(filter)}
+                }
+                style={{
+                marginLeft: '4px'
             }}>
                 {name}
-            </a>
+            </button>
         )
     }
     render() {
